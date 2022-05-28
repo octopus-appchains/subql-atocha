@@ -1,0 +1,28 @@
+specVersion: 0.2.0
+name: subql-atocha
+version: 0.0.4
+description: This project can be use as a starting po...
+repository: https://github.com/octopus-appchains/subql-atocha.git
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: >-
+    wss://gateway.mainnet.octopus.network/atocha/jungxomf4hdcfocwcalgoiz64g9avjim
+  genesisHash: "0x1f11f745be512a17f39b571a9391b5ee6747b900c1db98176828e4a1346dbe9b"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+        - handler: handleCall
+          kind: substrate/CallHandler
+        - handler: systemTokenTransferEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Transfer
