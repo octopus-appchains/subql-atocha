@@ -1,14 +1,21 @@
-specVersion: 0.2.0
-name: subql-atocha
-version: 0.0.4
+specVersion: 1.0.0
+name: testnet-subql-atocha
+version: 1.0.0
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=1.13.3"
+  query:
+    name: "@subql/query"
+    version: "*"
 description: This project can be use as a starting po...
-repository: https://github.com/octopus-appchains/subql-atocha.git
+repository: https://github.com/octopus-appchains/testnet-subql-atocha.git
 schema:
   file: ./schema.graphql
 network:
   endpoint: >-
-    wss://gateway.mainnet.octopus.network/atocha/jungxomf4hdcfocwcalgoiz64g9avjim
-  genesisHash: "0x1f11f745be512a17f39b571a9391b5ee6747b900c1db98176828e4a1346dbe9b"
+    wss://gateway.testnet.octopus.network/atocha/yevqd2d4jhm0dqakaj4hkbyjjfg6ukbu
+  genesisHash: "0xa8355f905404fd9c98b1107b1b13069679bd62f9abdac1739363cbad5a67cbc4"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
